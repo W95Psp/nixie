@@ -56,6 +56,12 @@ else
   USER_CACHE="$HOME/.cache"
 fi
 
+# Make sure the cache directory exists
+mkdir -p "$USER_CACHE" || {
+    >&2 echo 'Could not create cache directory `'"$USER_CACHE"'`'
+    exit 1
+}
+
 ##### UTILITY FUNCTIONS #####
 
 # Output an error message to stderr then nuke ourselves
